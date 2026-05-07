@@ -24,6 +24,13 @@ Prereqs: Node.js + npm.
 Frontend runs on http://localhost:5173 and proxies /api to the backend on http://localhost:3001.
 If you want to run them separately, use npm run dev:api and npm run dev:ui from the repo root.
 
+## Screenshots
+Upload and preview flow:
+![Upload and preview](docs/screenshots/ui-1.png)
+
+Extracted data with edits and recent receipts:
+![Extracted data and edits](docs/screenshots/ui-2.png)
+
 ## API (backend)
 - POST /api/parse (multipart form field: image)
 - POST /api/receipts (JSON body)

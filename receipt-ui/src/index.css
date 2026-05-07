@@ -1,0 +1,80 @@
+
+:root {
+  --bg: #f4efe7;
+  --bg-2: #ece7dd;
+  --surface: #ffffff;
+  --surface-2: #f7f3ec;
+  --ink: #1c1b18;
+  --muted: #6f665e;
+  --accent: #0f766e;
+  --accent-strong: #0b5c55;
+  --accent-soft: rgba(15, 118, 110, 0.16);
+  --line: #e2d6c6;
+  --radius-lg: 18px;
+  --radius-md: 12px;
+  --radius-sm: 8px;
+  --shadow: 0 24px 48px rgba(28, 27, 24, 0.12);
+  --shadow-soft: 0 12px 26px rgba(28, 27, 24, 0.1);
+  --font-display: 'Avenir Next', 'Gill Sans', 'Trebuchet MS', sans-serif;
+  --font-body: 'Avenir Next', 'Gill Sans', 'Trebuchet MS', sans-serif;
+
+  font: 16px/1.6 var(--font-body);
+  color: var(--ink);
+  background: var(--bg);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 15% 15%, #fff7e9 0%, transparent 45%),
+    radial-gradient(circle at 85% 5%, #e3f1ee 0%, transparent 40%),
+    linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(
+      90deg,
+      rgba(28, 27, 24, 0.03) 0px,
+      rgba(28, 27, 24, 0.03) 1px,
+      transparent 1px,
+      transparent 90px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      rgba(28, 27, 24, 0.03) 0px,
+      rgba(28, 27, 24, 0.03) 1px,
+      transparent 1px,
+      transparent 90px
+    );
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+#root {
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+h1, h2, h3, h4, p {
+  margin: 0;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}

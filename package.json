@@ -1,0 +1,13 @@
+{
+  "name": "receipt-parser",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently -n api,ui -c green,cyan \"npm run dev --prefix server\" \"npm run dev --prefix receipt-ui\"",
+    "dev:api": "npm run dev --prefix server",
+    "dev:ui": "npm run dev --prefix receipt-ui",
+    "setup": "npm install --prefix server && npm install --prefix receipt-ui"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.1"
+  }
+}

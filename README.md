@@ -33,19 +33,19 @@ If you want to run them separately, use npm run dev:api and npm run dev:ui from 
 ## Env vars
 See server/.env.example for required variables.
 
-## Take-home answers
+## Answers to the questions : 
 
 ### What did you build?
 I built a local full-stack app where a user uploads a receipt image, the backend sends it to Gemini to extract merchant, date, line items, and total, and the UI shows a preview with inline editable fields and a line-item table. The corrected receipt can be saved, and a recent-receipts list loads entries from SQLite.
 
-### Biggest tradeoffs (2-3) and why
+### Biggest tradeoffs and why
 - LLM output handling is strict: I extract the first JSON object and validate it against a schema, then fail fast with a visible error if it does not match. This keeps behavior predictable but means no automatic retries or repair for malformed output.
 - Persistence stores the entire receipt JSON in one SQLite column. It is quick to build and flexible for schema tweaks, but it limits queryability and reporting without additional parsing later.
 - Line items intentionally exclude taxes, tips, discounts, and subtotals. This keeps the correction UI focused on actual purchases, but it means some receipts need manual fixes when fees are blended into item lines.
 
 ### Where did you use an LLM, and for what?
 - Runtime: the backend /api/parse endpoint uses Gemini via @google/genai (model default gemini-3-flash-preview, configurable with GEMINI_MODEL) to turn the receipt image into structured JSON.
-- Development: I used Claude to plan the project structure and rough prompt shape; I wrote the API and UI implementation myself.
+- Development: I used Claude to plan the project structure and rough prompt shape; I wrote the API myself and used Copilot for guidance and assistance.
 
 ### What would you do with another week?
 - Add confidence signals or extracted text evidence per field and surface them in the editor to focus corrections.
